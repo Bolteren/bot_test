@@ -54,13 +54,13 @@ class conversationBot:
                 result = True
             else:
                 result = False
-        return [result, counterInterior, counterExternal - 1]
+        return [result, counterInterior, counterExternal]
 
     def dialog(self, text):
         respounce = self.comparison(text)
         if respounce[0]:
-            print("asd " + str(respounce[2]))
-            respounceFrase = self.responceBot[respounce[1]][respounce[2]]
+            #print(self.usersSay[respounce[1]][respounce[2] - 1])
+            respounceFrase = self.responceBot[respounce[1]][0]
         else:
             respounceFrase = "Я не смог разобраться."
         return respounceFrase
@@ -68,7 +68,7 @@ class conversationBot:
 
 def main():
     q = conversationBot()
-    print(q.dialog("привет"))
+    print(q.dialog("Привет"))
 
 
 if __name__ == "__main__":
